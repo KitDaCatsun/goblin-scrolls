@@ -1,0 +1,89 @@
+\chapter{Logic and Proof}
+
+\section{Propositional Logic}
+
+\subsection{Propositions}
+A proposition is a declarative sentence that is either true or false, for example:
+\begin{itemize}
+    \item The moon is made of green cheese.
+    \item \(1 + 0 = 0\)
+    \item \(0 + 0 = 2\)
+\end{itemize}
+Statements that are not proposition include:
+\begin{itemize}
+    \item ``Sit down"
+    \item \(x + 1 = 2\)
+\end{itemize}
+
+\subsection{Propositional Logic}
+Atomic propositions use variables (\(p\), \(q\), \(r\), \dots) and constants (\(\mathbf{T}\) and \(\mathbf{F}\)). Compound propositions use logic operators.
+
+\subsubsection{Negation}
+The negation (`not') of a proposition \(p\) is given by \(\neg p\). \(\neg p\) is true if \(p\) is false.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{cc}
+        \toprule
+        \(p\)          & \(\neg p\)     \\
+        \midrule
+        \(\mathbf{T}\) & \(\mathbf{F}\) \\
+        \(\mathbf{F}\) & \(\mathbf{T}\) \\
+        \bottomrule
+    \end{tabular}
+    \caption{Negation Truth Table}
+\end{table}
+
+\subsubsection{Conjunction}
+The conjunction (`and') of propositions \(p\) and \(q\) is denoted by \(p \land q\). \(p \land q\) is true only if both \(p\) and \(q\) are true.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        \(p\)          & \(q\)          & \(p \land p\)  \\
+        \midrule
+        \(\mathbf{F}\) & \(\mathbf{F}\) & \(\mathbf{F}\) \\
+        \(\mathbf{F}\) & \(\mathbf{T}\) & \(\mathbf{F}\) \\
+        \(\mathbf{T}\) & \(\mathbf{F}\) & \(\mathbf{F}\) \\
+        \(\mathbf{T}\) & \(\mathbf{T}\) & \(\mathbf{T}\) \\
+        \bottomrule
+    \end{tabular}
+    \caption{Conjunction Truth Table}
+\end{table}
+
+\subsubsection{Disjunction}
+The conjunction (`or') of propositions \(p\) and \(q\) is denoted by \(p \lor q\). \(p \lor q\) is true as long as at least one of \(p\) or \(q\) are true.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        \(p\)          & \(q\)          & \(p \lor p\)   \\
+        \midrule
+        \(\mathbf{F}\) & \(\mathbf{F}\) & \(\mathbf{F}\) \\
+        \(\mathbf{F}\) & \(\mathbf{T}\) & \(\mathbf{T}\) \\
+        \(\mathbf{T}\) & \(\mathbf{F}\) & \(\mathbf{T}\) \\
+        \(\mathbf{T}\) & \(\mathbf{T}\) & \(\mathbf{T}\) \\
+        \bottomrule
+    \end{tabular}
+    \caption{Disjunction Truth Table}
+\end{table}
+
+\subsubsection{Exclusive Or}
+The exclusive or of propositions \(p\) and \(q\) is denoted by \(p \oplus q\). \(p \oplus q\) is true if \(p\) is true or \(q\) is true, but not both.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        \(p\)          & \(q\)          & \(p \oplus p\) \\
+        \midrule
+        \(\mathbf{F}\) & \(\mathbf{F}\) & \(\mathbf{F}\) \\
+        \(\mathbf{F}\) & \(\mathbf{T}\) & \(\mathbf{T}\) \\
+        \(\mathbf{T}\) & \(\mathbf{F}\) & \(\mathbf{T}\) \\
+        \(\mathbf{T}\) & \(\mathbf{T}\) & \(\mathbf{F}\) \\
+        \bottomrule
+    \end{tabular}
+    \caption{Exclusive Or Truth Table}
+\end{table}

@@ -1,0 +1,94 @@
+\documentclass[twoside]{report}
+
+\usepackage[a4paper, margin=1in]{geometry}
+
+\usepackage{xcolor, textgreek, hyperref, amssymb,  multirow, booktabs, bbold, listings}
+
+\renewcommand{\partname}{Module}
+\renewcommand{\thepart}{ECM\arabic{part}}
+\newcommand{\module}[3]{%
+    \setcounter{part}{#1}%
+    \addtocounter{part}{-1}%
+    \part[#2]{#2\\\vspace{1\baselineskip}\small\emph{#3}}%
+}
+
+\renewcommand{\arraystretch}{1.2}
+
+\hypersetup{
+    pdfauthor={Kit Matthewson},
+    pdftitle={Computer Science Notes},
+    pdfpagemode=FullScreen,
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=gray,
+    urlcolor=teal,
+    citecolor=black,
+    breaklinks=false,
+}
+
+\lstset{
+  basicstyle=\ttfamily,
+  numberstyle=\ttfamily\small,
+  columns=fullflexible,
+  breaklines=false,
+  postbreak=\mbox{\textcolor{gray}{\(\hookrightarrow\)}\space},
+  escapechar=\$
+}
+
+\begin{document}
+
+\begin{titlepage}
+
+    \centering
+    \vspace*{\baselineskip}
+
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+    \rule{\textwidth}{0.4pt}
+
+    \vspace{0.75\baselineskip}
+
+    {\scshape\LARGE COMPUTER SCIENCE}
+
+    \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+    \rule{\textwidth}{1.6pt}
+
+    \vspace{2\baselineskip}
+
+    Notes on the University of Exeter Computer Science course.
+
+    \vspace*{5\baselineskip}
+
+    Written By the Prophet
+
+    \vspace{0.5\baselineskip}
+
+    {\scshape\Large Kit Matthewson}
+
+    \vspace{1\baselineskip}
+
+    As Revealed to Him By
+
+    \vspace{0.5\baselineskip}
+
+    {\scshape\Large Jah}
+
+    \vspace{10\baselineskip}
+
+    Dedicated to
+
+        {\scshape\normalsize His Imperial Majesty King Haile Selassie I\\Defender of the Faith,\\Reincarnation of the Son.}
+
+    \vspace{12\baselineskip}
+
+    As Declared on \today
+
+\end{titlepage}
+
+\tableofcontents
+
+\input{ECM1011/part.tex}
+\input{ECM1400/part.tex}
+\input{ECM1407/part.tex}
+\input{ECM1415/part.tex}
+
+\end{document}
