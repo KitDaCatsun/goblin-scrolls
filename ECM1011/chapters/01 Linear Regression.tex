@@ -1,0 +1,64 @@
+\chapter{Linear Regression}
+
+% TODO Graphs
+
+\section{Linear Regression}
+Linear regression assumes one variable of a model is proportional to another:
+\begin{equation}
+    \label{eq:linear_regression}
+    y = ax + b
+\end{equation}
+Non-linear regression, for instance quadratic, looks like:
+\begin{equation*}
+    y = ax^2 + bx + c
+\end{equation*}
+Or sigmoid:
+\begin{equation*}
+    y = \frac{1}{1 + e ^{b-x}}
+\end{equation*}
+
+The values of \(a\) and \(b\) could be naively found by randomly sampling or using a grid search. A better method would iteratively search for the best values of \(a\) and \(b\). A generic parameter fitting method is:
+\begin{lstlisting}
+1. Start at a random point $\emph{P1}$ in parameter space.
+2. Calculate the error at $\emph{P1}$.
+3. Move to a nearby point $\emph{P2}$.
+4. Calculate the error at $\emph{P2}$.
+5. Stop when some condition is met.
+\end{lstlisting}
+A deterministic algorithm would calculate the position \emph{P2} to move to based on \emph{P1} and the calculated error. A stochastic algorithm picks a random point \emph{P2}. A deterministic algorithm that uses some randomness will avoid getting `stuck' in local minima.
+
+The conditions that need to be met for the algorithm to stop might include:
+\begin{enumerate}
+    \item The error going less than a certain threshold.
+    \item Some number of steps having been taken.
+\end{enumerate}
+
+Error can be calculated in two ways. L1 norm is:
+\begin{equation*}
+    \epsilon = \sum_{i=1}^{m}|y_i^{predicted} - y_i^{data}|
+\end{equation*}
+L2 norm replaces the modulus with a square, and is more common:
+\begin{equation}
+    \label{eq:l2_norm}
+    \epsilon = \sqrt{\sum_{i=1}^{m}(y_i^{predicted} - y_i^{data})^2}
+\end{equation}
+The error function can also be called a cost or loss function. Note how \ref*{eq:l2_norm} is also the formula for Euclidean distance.
+
+The deterministic algorithm needs to remember some information about the parameter space so that \emph{P2} can be determined. The best movement is to the minimum of the loss function, where the derivative of loss with respect to the parameters is 0:
+\begin{align*}
+    \frac{\delta loss}{\delta a} & = 0 \\
+    \frac{\delta loss}{\delta b} & = 0
+\end{align*}
+Or:
+\begin{equation*}
+    \vec{\Delta} loss = 0
+\end{equation*}
+By finding the derivative of the loss function, the deterministic algorithm can move in the direction where the loss function has the steepest gradient.
+
+\begin{lstlisting}
+1. Start at a random point $\emph{P1}$ in parameter space.
+2. Calculate the error at $\emph{P1}$.
+3. Move in the direction of steepest gradient to point $\emph{P2}$.
+4. Calculate the error at $\emph{P2}$.
+5. Stop when the error has become less than a threshold, or more than $\(N\)$ steps have been taken.
+\end{lstlisting}
