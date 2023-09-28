@@ -1,8 +1,10 @@
+% !TeX root = main.tex
+
 \documentclass[twoside]{report}
 
 \usepackage[a4paper, margin=1in]{geometry}
-
-\usepackage{xcolor, textgreek, hyperref, amssymb, amsmath,  multirow, booktabs, bbold, listings}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor, textgreek, hyperref, amssymb, amsmath,  multirow, booktabs, bbold, listings, fancyhdr, titlecaps}
 
 \renewcommand{\partname}{Module}
 \renewcommand{\thepart}{ECM\arabic{part}}
@@ -13,6 +15,8 @@
 }
 
 \renewcommand{\arraystretch}{1.2}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 
 \hypersetup{
     pdfauthor={Kit Matthewson},
@@ -33,6 +37,18 @@
   breaklines=false,
   postbreak=\mbox{\textcolor{gray}{\(\hookrightarrow\)}\space},
   escapechar=\$
+}
+
+\newcommand*\parttitle{}
+\let\origpart\part
+\renewcommand*{\part}[2][]{%
+   \ifx\\#1\\%
+      \origpart{#2}%
+      \renewcommand*\parttitle{#2}%
+   \else
+      \origpart[#1]{#2}%
+      \renewcommand*\parttitle{#1}%
+   \fi
 }
 
 \begin{document}
@@ -85,6 +101,15 @@
 \end{titlepage}
 
 \tableofcontents
+
+\clearpage
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RE, LO]{The Binary Scrolls}
+\fancyhead[LE, RO]{\parttitle: \leftmark}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
 
 \input{ECM1011/part.tex}
 \input{ECM1400/part.tex}
