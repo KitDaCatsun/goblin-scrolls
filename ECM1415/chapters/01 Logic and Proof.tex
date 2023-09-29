@@ -87,3 +87,130 @@ The exclusive or of propositions \(p\) and \(q\) is denoted by \(p \oplus q\). \
     \end{tabular}
     \caption{Exclusive Or Truth Table}
 \end{table}
+
+\subsection{Compound propositions}
+If \(p\) and \(q\) are propositions, then \(p \rightarrow q\) is a conditional statement or implication. \(p\) is the hypothesis (or antecedent or premise), and \(q\) is the conclusion (or consequence).
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        \(p\)          & \(q\)          & \(p \rightarrow q\) \\
+        \midrule
+        \(\mathbf{F}\) & \(\mathbf{F}\) & \(\mathbf{T}\)      \\
+        \(\mathbf{F}\) & \(\mathbf{T}\) & \(\mathbf{T}\)      \\
+        \(\mathbf{T}\) & \(\mathbf{F}\) & \(\mathbf{F}\)      \\
+        \(\mathbf{T}\) & \(\mathbf{T}\) & \(\mathbf{T}\)      \\
+        \bottomrule
+    \end{tabular}
+    \caption{Implication Truth Table}
+\end{table}
+
+Note how if the hypothesis is false, the implication always holds.
+
+If \(p \rightarrow q\), `If it is raining I stay at home':
+\begin{itemize}
+    \item \(q \rightarrow p\) is the converse: `If I stay at home it is raining'.
+    \item \(\neg q \rightarrow \neg p\) is the contrapositive: `If it is not raining I will not stay at home'.
+    \item \(\neg p \rightarrow \neg q\) is the inverse: 'If I do not stay at home it is not raining.'.
+\end{itemize}
+If \(p\) and \(q\) are propositions, \(p \leftrightarrow  q\) is the biconditional `if and only if'.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        \(p\)          & \(q\)          & \(p \leftrightarrow q\) \\
+        \midrule
+        \(\mathbf{F}\) & \(\mathbf{F}\) & \(\mathbf{T}\)          \\
+        \(\mathbf{F}\) & \(\mathbf{T}\) & \(\mathbf{F}\)          \\
+        \(\mathbf{T}\) & \(\mathbf{F}\) & \(\mathbf{F}\)          \\
+        \(\mathbf{T}\) & \(\mathbf{T}\) & \(\mathbf{T}\)          \\
+        \bottomrule
+    \end{tabular}
+    \caption{Biconditional Truth Table}
+\end{table}
+
+A truth table can be constructed for compound propositions by creating a row for every combination of values for the atomic propositions, and a column for the truth value of every sub-expression.
+
+A proposition that is always true, like \(p \lor \neg p\), is called a tautology. A contradiction like \(p \land \neg p\) is always false. A statement that can be either is a contingency.
+
+The logical operators have the precedence:
+\begin{enumerate}
+    \item Negation \(\neg\)
+    \item Conjunction \(\land\)
+    \item Disjunction \(\lor\)
+    \item Implication \(\rightarrow\)
+    \item Biconditional \(\leftrightarrow\)
+\end{enumerate}
+
+\section{Propositional equivalences}
+
+\subsection{Equivalence}
+Two propositions \(p\) and \(q\) are equivalent if they have the same truth tables, shown by \(p \equiv q\). This is the same as saying that \(p \leftrightarrow q\) is a tautology.
+
+The contrapositive of an implication is equivalent to the implication, but the inverse and converse are not.
+
+\subsection{Key logical equivalences}
+% TODO
+The identity law says that true is the identity of conjunction, and false the identity of disjunction:
+\begin{align}
+    p \land \mathbf{T} & \equiv p \\
+    p \lor \mathbf{F}  & \equiv p
+\end{align}
+The domination law says that true dominates disjunction, and false dominates conjunction:
+\begin{align}
+    p \land \mathbf{F} & \equiv \mathbf{F} \\
+    p \lor \mathbf{T}  & \equiv \mathbf{T}
+\end{align}
+The idempotent law says that the conjunction or disjunction of \(p\) with itself is \(p\):
+\begin{align}
+    p \land p & \equiv p \\
+    p \lor p  & \equiv p
+\end{align}
+The double negative law says that two negatives do not change a variable:
+\begin{align}
+    \neg(\neg p) & \equiv p
+\end{align}
+The negation law says that the disjunction of \(p\) with \(\neg p\) is true, and the conjunction is false:
+\begin{align}
+    p \land \neg p & \equiv \mathbf{F} \\
+    p \lor \neg p  & \equiv \mathbf{T}
+\end{align}
+The commutative law says that disjunction and conjunction are commutative:
+\begin{align}
+    p \land q & \equiv q \land p \\
+    p \lor q  & \equiv q \lor p
+\end{align}
+The associative law says that the order that three conjunctions or disjunctions are evaluated does not matter:
+\begin{align}
+    p \land (q \land r) & \equiv (p \land q) \land r \\
+    p \lor (q \lor r)   & \equiv (p \lor q) \lor r
+\end{align}
+The distributive law says that a disjunction or conjunction can be distributed across the other operator:
+\begin{align}
+    p \land (q \lor r) & \equiv p \land q \lor p \land r    \\
+    p \lor (q \land r) & \equiv (p \lor q) \land (p \lor r)
+\end{align}
+The absorption law says that:
+\begin{align}
+    p \lor (p \land q) & \equiv p \\
+    p \land (p \lor q) & \equiv p
+\end{align}
+De Morgan's laws state:
+\begin{align}
+    \neg(p \land q) & \equiv \neg p \lor \neg q  \\
+    \neg(p \lor q)  & \equiv \neg p \land \neg q
+\end{align}
+Laws for conditional statements are:
+\begin{align}
+    p \rightarrow q & \equiv \neg p \lor q             \\
+    p \rightarrow q & \equiv \neg q \rightarrow \neg p
+\end{align}
+And for biconditional statements:
+\begin{align}
+    p \leftrightarrow q & \equiv (p \rightarrow q) \lor (q \rightarrow p)
+\end{align}
+
+\subsection{Constructing new logical equivalences}
+To prove that \(A \equiv B\), produce a series of equivalences that begins with \(A\) and ends with \(B\).
