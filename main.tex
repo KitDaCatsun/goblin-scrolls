@@ -6,19 +6,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{xcolor, textgreek, hyperref, amssymb, amsmath,  multirow, booktabs, bbold, listings, fancyhdr, titlecaps}
 
-\renewcommand{\partname}{Module}
-\renewcommand{\thepart}{ECM\arabic{part}}
-\newcommand{\module}[3]{%
-    \setcounter{part}{#1}%
-    \addtocounter{part}{-1}%
-    \setcounter{chapter}{0}%
-    \part[#2]{#2\\\vspace{1\baselineskip}\small\emph{#3}}%
-}
-
-\renewcommand{\arraystretch}{1.2}
-
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-
 \hypersetup{
     pdfauthor={Kit Matthewson},
     pdftitle={The Goblin Scrolls},
@@ -31,28 +18,9 @@
     breaklinks=false,
 }
 
-\lstset{
-  basicstyle=\ttfamily,
-  numberstyle=\ttfamily\small,
-  columns=fullflexible,
-  breaklines=true,
-  postbreak=\mbox{\textcolor{gray}{\(\hookrightarrow\)}\space},
-  escapechar=\$
-}
-
-\newcommand*\parttitle{}
-\let\origpart\part
-\renewcommand*{\part}[2][]{%
-   \ifx\\#1\\%
-      \origpart{#2}%
-      \renewcommand*\parttitle{#2}%
-   \else
-      \origpart[#1]{#2}%
-      \renewcommand*\parttitle{#1}%
-   \fi
-}
-
 \begin{document}
+
+\include{preamble.tex}
 
 \begin{titlepage}
 
