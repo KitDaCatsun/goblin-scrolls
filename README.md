@@ -4,7 +4,7 @@ The official Computer Science Scrolls.
 
 ## Downloading
 
-Click [here](https://gitlab.com/kitdacatsun/goblin-scrolls/-/jobs/artifacts/main/download?job=build) to download the Scrolls in PDF form.
+Click [here](https://gitlab.com/kitdacatsun/goblin-scrolls/-/jobs/artifacts/master/download?job=build) to download the Scrolls in PDF form.
 
 # Code Snippets
 
