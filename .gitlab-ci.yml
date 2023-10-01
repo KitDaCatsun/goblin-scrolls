@@ -5,8 +5,8 @@ build:
   image: $LATEX_IMAGE
   script:
     - latexmk -f -pdf
-    - mv main.pdf "The Goblin Bible.pdf"
+    - mv main.pdf "The Goblin Scrolls.pdf"
 
   artifacts:
     paths:
-      - "The Goblin Bible.pdf"
+      - "The Goblin Scrolls.pdf"
