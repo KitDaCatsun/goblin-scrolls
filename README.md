@@ -1,6 +1,6 @@
 # The Goblin Scrolls
-The official Computer Science Scrolls.
 
+The official Computer Science Scrolls.
 
 ## Downloading
 
@@ -9,23 +9,28 @@ Click [here](https://gitlab.com/kitdacatsun/goblin-scrolls/-/jobs/artifacts/main
 # Code Snippets
 
 ## Equations
+
 For single equations:
+
 ```tex
 \begin{equation*}
     \theta = \frac{l}{r}
 \end{equation*}
 ```
+
 For multiple, related, equations:
+
 ```tex
 \begin{align*}
     \Re(a+bi) & = a \\
-    \Im(a+bi) & = b 
+    \Im(a+bi) & = b
 \end{align*}
 ```
 
 If equations need to be referenced, remove the `*` and add a `label{eq:label}`. In aligned equations, use `\\nonumber` to only number select equations.
 
 ## Figures
+
 ```tex
 \begin{figure}[htbp]
     \centering
@@ -57,3 +62,7 @@ Consider producing a graph with `pgfplots` or an image with `tikz` instead of us
 ```
 
 Consider aligning columns with `c` instead of `l` in some situations.
+
+## References
+
+To reference a label, use the `cleverref` package. `\cref{label}` inserts a reference, and `\Cref{label}` capitalises the first letter of the type. Multiple references can be made at once by separating the labels with commas: `\cref{label1, label2, ...}` or `\Cref{label1, label2, ...}`.
