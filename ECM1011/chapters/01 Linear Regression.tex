@@ -41,8 +41,8 @@ Error can be calculated in two ways. L1 norm is:
 \end{equation*}
 L2 norm replaces the modulus with a square, and is more common:
 \begin{equation}
-    \label{eq:l2_norm}
     \epsilon = \sqrt{\sum_{i=1}^{m}(y_i^{predicted} - y_i^{data})^2}
+    \label{eq:l2_norm}
 \end{equation}
 The error function can also be called a cost or loss function. Note how \cref{eq:l2_norm} is also the formula for Euclidean distance.
 
@@ -65,3 +65,40 @@ By finding the derivative of the loss function, the deterministic algorithm can 
 4. Calculate the error at $\(\mathbf{P2}\)$.
 5. Stop when the error has become less than a threshold, or more than $\(N\)$ steps have been taken.
 \end{lstlisting}
+
+\section{Fit}
+\subsection{Types of fit}
+A model is overfitted if it matches training data `too well', so that new data does not fit the old model. If the model is underfitted it does not model the data closely enough to accurately categorise it. A good model is generalised so that it can accommodate data that have not been seen before.
+
+\subsection{Train-test split}
+Overfitting can be avoided by training and testing the model on different datasets. The proportion of data in the training set to testing set is normally around 80\%:20\%.
+
+It may be useful to non-randomly sample the dataset, like enforcing ratios of some classes in the sets so that they match the population.
+
+\subsection{Testing fit}
+To compare linear regressions on the same variables, the L2 norm can simply be compared. In order to compare linear regressions on different variables, the \(R^2\) metric\footnote{Also called coefficient of determination.} is used. The Sum of Squared Estimates is first calculated:
+\begin{equation*}
+    SSE^{zero} = \sum_{i=1}^{m}(\overline{y} - y_i^{data})^2
+\end{equation*}
+This gives a value for the accuracy of a model that always predicts the average. The \(SSE\) of the actual model can then be calculated:
+\begin{equation*}
+    SSE = \sum_{i=1}^{m}(y_i^{pred} - y_i^{data})^2
+\end{equation*}
+And finally \(R^2\):
+\begin{equation}
+    R^2 = 1 - \frac{SSE}{SSE^{zero}}
+    \label{eq:r_squared}
+\end{equation}
+The meanings of \(R^2\) values are:
+\begin{itemize}
+    \item \(R^2 \approx 0\): The linear model is just as good as the constant model, there may be no relationship between the variables.
+    \item \(R^2 \approx 1\): The linear model is almost as good as the original data.
+\end{itemize}
+\(R^2\) says how much of the variation in the \(y\) variable is explained by the linear regression.
+
+\subsection{Linear regressions with \emph{N} variables}
+With \(N\) variables:
+\begin{align*}
+    y & = f(x_1, x_2, \dots, x_N)  \\
+    y & = \sum_{i=1}^{N}a_ix_i + b
+\end{align*}
