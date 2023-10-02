@@ -5,7 +5,7 @@
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-\usepackage{xcolor, textgreek, amssymb, amsmath,  multirow, booktabs, bbold, listings, fancyhdr, titlecaps, cleveref}
+\usepackage{xcolor, textgreek, amssymb, amsmath, amsthm, multirow, booktabs, bbold, listings, fancyhdr, titlecaps, cleveref}
 
 \hypersetup{
     pdfauthor={Kit Matthewson},
@@ -57,6 +57,9 @@
     postbreak=\mbox{\textcolor{gray}{\(\hookrightarrow\)}\space},
     escapechar=\$
 }
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
 
 \newcommand*\parttitle{}
 \let\origpart\part
