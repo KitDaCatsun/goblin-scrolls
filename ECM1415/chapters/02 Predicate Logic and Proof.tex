@@ -38,3 +38,38 @@ De Morgan's laws for quantifiers are:
     \neg(\forall x. P(x)) & \equiv \exists x. \neg P(x) \\
     \neg(\exists x. P(x)) & \equiv \forall x. \neg P(x)
 \end{align*}
+
+\section{Rules of inference}
+\subsection{Arguments}
+An argument is a sequence of propositions.
+\begin{itemize}
+    \item All but the final proposition are called premises.
+    \item The last statement is the conclusion.
+    \item THe argument is valid if the premises imply the conclusion.
+    \item An argument form is an argument that is valid no matter what propositions are substituted into its propositional variables.
+\end{itemize}
+
+\begin{example}
+    An argument:
+    \begin{equation*}
+        \begin{array}{r l}
+                       & Snowing \rightarrow Study \\
+                       & Snowing                   \\
+            \cline{2-2}
+            \therefore & Study
+        \end{array}
+    \end{equation*}
+    In argument form:
+    \begin{equation*}
+        \begin{array}{r l}
+                       & p \rightarrow q \\
+                       & p               \\
+            \cline{2-2}
+            \therefore & q
+        \end{array}
+    \end{equation*}
+    The corresponding tautology is:
+    \begin{equation*}
+        (p \land (p \rightarrow q)) \rightarrow q
+    \end{equation*}
+\end{example}
