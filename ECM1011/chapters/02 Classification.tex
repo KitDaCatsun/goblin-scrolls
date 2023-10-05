@@ -1,0 +1,51 @@
+\chapter{Classification Algorithms}
+
+\section{Classification}
+\subsection{Comparison to regression}
+Classification tends to be used on discrete data, whereas regression is continuous. A classifier would be used to filter spam from email.
+
+Adversarial data, like two objects that look similar to an image classifier, can `trick' a classification algorithm into producing an incorrect output.
+
+A classifier will normally output a probability for each category that it knows. Any input given to the classifier will produce an output, even for inputs that do not actually fit into any category.
+
+\subsection{Supervised learning}
+Classification and regression are supervised learning techniques, because the algorithm is trained using correct examples, or `ground truth data'.
+
+\subsection{Logistic regression}
+Sigmoid regression (\cref{eq:sigmoid_regression}) could be used to fit a curve to data that fits into two categories, \(y=0\) and \(y=1\). In this case, the value of \(y\) is the probability that \(y=1\) for a given \(x\). This is called logistic regression.
+
+\subsection{Cost functions}
+L1 or L2 norm cannot be used on categorical algorithms because they rely on continuous data. Instead, the model is penalised based on how `obvious' the categorisation should be. For data in two categories, this looks like two exponentials that increase as the predicted probability of the correct category worsens.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{lll}
+        \toprule
+                           & Actual Positive & Actual Negative \\
+        \midrule
+        Predicted Positive & True Positive   & False Positive  \\
+        Predicted Negative & False Positive  & True Negative   \\
+        \bottomrule
+    \end{tabular}
+    \caption{Table Caption}
+    \label{tab:label}
+\end{table}
+
+\section{Perceptrons}
+\subsection{The Perceptron}
+The perceptron mimics a biological neuron. A perceptron takes a list of inputs \(x_1 \dots x_k\) and parameters (or weights) \(w_1 \dots w_k\), and applies a function like a step function to their values to produce a single output from \(0\) to \(1\):
+\begin{equation}
+    \label{eq:perceptron_prediction}
+    y^{pred} = f(\vec{w} \cdot \vec{x} + b)
+\end{equation}
+If the prediction \(y^{pred}\) is incorrect, the weights are updated with:
+\begin{equation}
+    \label{eq:perceptron_updating}
+    \vec{w}_{t+1} = \vec{w}_t + \alpha(y^{data} - y^{pred})\vec{x}
+\end{equation}
+This can categorise data well only if it can be linear separated.
+
+\subsection{Multi Layer Perceptron}
+Many perceptrons can be connected together into a network. Multiple layers of perceptrons are connected so that the outputs of one layer become the inputs for the next. This leads to a large number of parameters that need to be fit. This is a neural network. A neural network with `lots' of layers is called a `deep neural network'.
+
+Because of the large number of parameters, neural networks require a large amount of training data to produce accurate predictions.

@@ -13,9 +13,10 @@ Non-linear regression, for instance quadratic, looks like:
     y = ax^2 + bx + c
 \end{equation*}
 Or sigmoid:
-\begin{equation*}
+\begin{equation}
+    \label{eq:sigmoid_regression}
     y = \frac{1}{1 + e ^{b-x}}
-\end{equation*}
+\end{equation}
 
 \subsection{Fitting a regression model}
 The values of \(a\) and \(b\) could be naively found by randomly sampling or using a grid search. A better method would iteratively search for the best values of \(a\) and \(b\). A generic parameter fitting method is:
