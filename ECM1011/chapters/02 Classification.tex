@@ -14,21 +14,27 @@ Classification and regression are supervised learning techniques, because the al
 \subsection{Logistic regression}
 Sigmoid regression (\cref{eq:sigmoid_regression}) could be used to fit a curve to data that fits into two categories, \(y=0\) and \(y=1\). In this case, the value of \(y\) is the probability that \(y=1\) for a given \(x\). This is called logistic regression.
 
-\subsection{Cost functions}
+\subsection{Cost and Score functions}
 L1 or L2 norm cannot be used on categorical algorithms because they rely on continuous data. Instead, the model is penalised based on how `obvious' the categorisation should be. For data in two categories, this looks like two exponentials that increase as the predicted probability of the correct category worsens.
+
+The score of a categorical algorithm also cannot be calculated with \(R^2\). It is instead calculated using:
+\begin{equation}
+    accuracy = \frac{TP + TN}{TP + FP + TN + FN}
+\end{equation}
+Where \(TP\), \(FP\), \(TN\), and \(FN\) are from \cref{tab:confusion_matrix}.
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{lll}
+    \begin{tabular}{lcc}
         \toprule
-                           & Actual Positive & Actual Negative \\
+                                    & \textbf{Actual Positive} & \textbf{Actual Negative} \\
         \midrule
-        Predicted Positive & True Positive   & False Positive  \\
-        Predicted Negative & False Positive  & True Negative   \\
+        \textbf{Predicted Positive} & True Positive (TP)       & False Positive (FP)      \\
+        \textbf{Predicted Negative} & False Positive (FP)      & True Negative (TN)       \\
         \bottomrule
     \end{tabular}
-    \caption{Table Caption}
-    \label{tab:label}
+    \caption{Confusion Matrix}
+    \label{tab:confusion_matrix}
 \end{table}
 
 \section{Perceptrons}
