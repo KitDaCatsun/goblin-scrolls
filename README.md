@@ -70,12 +70,12 @@ To reference a label, use the `cleverref` package. `\cref{label}` inserts a refe
 ## Logical Arguments
 
 ```tex
-    \begin{equation*}
-        \begin{array}{r l}
-                       & p \rightarrow q \\
-                       & p               \\
-            \cline{2-2}
-            \therefore & q
-        \end{array}
-    \end{equation*}
+\begin{equation*}
+    \begin{array}{r l}
+                    & p \rightarrow q \\
+                    & p               \\
+        \cline{2-2}
+        \therefore & q
+    \end{array}
+\end{equation*}
 ```
