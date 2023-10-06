@@ -45,7 +45,7 @@ An argument is a sequence of propositions.
 \begin{itemize}
     \item All but the final proposition are called premises.
     \item The last statement is the conclusion.
-    \item THe argument is valid if the premises imply the conclusion.
+    \item The argument is valid if the premises imply the conclusion.
     \item An argument form is an argument that is valid no matter what propositions are substituted into its propositional variables.
 \end{itemize}
 
@@ -73,3 +73,159 @@ An argument is a sequence of propositions.
         (p \land (p \rightarrow q)) \rightarrow q
     \end{equation*}
 \end{example}
+
+\subsection{Common Rules}
+Modus ponens:
+\begin{equation}
+    \begin{array}{r l}
+                   & p \rightarrow q \\
+                   & p               \\
+        \cline{2-2}
+        \therefore & q
+    \end{array}
+\end{equation}
+Modus tollens:
+\begin{equation}
+    \begin{array}{r l}
+                   & p \rightarrow q \\
+                   & \neg p          \\
+        \cline{2-2}
+        \therefore & \neg q
+    \end{array}
+\end{equation}
+Hypothetical syllogism:
+\begin{equation}
+    \begin{array}{r l}
+                   & p \rightarrow q \\
+                   & q \rightarrow r \\
+        \cline{2-2}
+        \therefore & p \rightarrow r
+    \end{array}
+\end{equation}
+Disjunctive syllogism:
+\begin{equation}
+    \begin{array}{r l}
+                   & p \lor q \\
+                   & \neg p   \\
+        \cline{2-2}
+        \therefore & q
+    \end{array}
+\end{equation}
+Addition:
+\begin{equation}
+    \begin{array}{r l}
+                   & p        \\
+        \cline{2-2}
+        \therefore & p \lor q
+    \end{array}
+\end{equation}
+Simplification:
+\begin{equation}
+    \begin{array}{r l}
+                   & p \land q \\
+        \cline{2-2}
+        \therefore & p
+    \end{array}
+\end{equation}
+Conjunction:
+\begin{equation}
+    \begin{array}{r l}
+                   & p         \\
+                   & q         \\
+        \cline{2-2}
+        \therefore & p \land q
+    \end{array}
+\end{equation}
+Resolution:
+\begin{equation}
+    \begin{array}{r ll}
+                   & \neg  p & \lor r \\
+                   & p       & \lor q \\
+        \cline{2-2}
+        \therefore & q       & \lor r
+    \end{array}
+\end{equation}
+
+\subsection{Rules of inference}
+A valid argument is a sequence of statements such that each statement is either a premise or follows from the previous statements by rules of inference.
+
+\begin{example}
+    Show that from \(p \land (p \rightarrow q)\) follows \(q\):
+
+    \begin{equation*}
+        \begin{array}{rll}
+            \text{1.} & p \land (p \rightarrow q) & \text{Premise}                        \\
+            \text{2.} & p                         & \text{Simplification using (1)}       \\
+            \text{3.} & p \rightarrow q           & \text{Simplification using (1)}       \\
+            \text{4.} & q                         & \text{Modus Ponens using (2) and (3)}
+        \end{array}
+    \end{equation*}
+
+\end{example}
+
+\subsection{Quantifiers}
+Universal instantiation:
+\begin{equation}
+    \begin{array}{r l}
+                   & \forall x. P(x) \\
+        \cline{2-2}
+        \therefore & P(c)
+    \end{array}
+\end{equation}
+Universal generalization:
+\begin{equation}
+    \begin{array}{r l}
+                   & P(c) \text{ for an arbitrary } c \\
+        \cline{2-2}
+        \therefore & \forall x. P(x)
+    \end{array}
+\end{equation}
+
+Existential instantiation:
+\begin{equation}
+    \begin{array}{r l}
+                   & \exists x. P(x)                  \\
+        \cline{2-2}
+        \therefore & P(c) \text{ for some element } c
+    \end{array}
+\end{equation}
+Existential generalization:
+\begin{equation}
+    \begin{array}{r l}
+                   & P(c) \text{ for some element } c \\
+        \cline{2-2}
+        \therefore & \exists x. P(x)
+    \end{array}
+\end{equation}
+
+\section{Proofs}
+\subsection{Proofs}
+A proof is a valid argument that establishes the truth of a statement. In informal proofs:
+\begin{itemize}
+    \item More than one rule of inference is used in a step.
+    \item Steps may be skipped.
+    \item The rules of inference are not explicitly stated.
+\end{itemize}
+A theorem is an important statement that can be proven. A lemma is a result that is needed to prove a theorem. A corollary is a result which follows directly from a theorem. A conjecture is a statement that is being proposed to be true.
+
+An proof is constructed by selecting a proof strategy and then using axioms, definitions, theorems, lemmas, and rules of inference.
+
+\subsection{Proof strategies}
+Strategies for conditional statements \(p \rightarrow q\):
+\begin{itemize}
+    \item Trivial proof if \(q\) is true.
+    \item Vacuous proof if \(p\) is false.
+    \item Direct proof: assume \(p\), then show \(q\).
+    \item Proof by contraposition: assume \(\neg p\), then show \(\neg q\).
+    \item Proof by cases: Find \(p_1, \dots, p_n\) such that \(p \equiv p_1 \lor \dots \lor p_n\), and show \(p_1 \rightarrow q, \dots, p_n \rightarrow q\).
+\end{itemize}
+For other statements:
+\begin{itemize}
+    \item Proof by contradiction: to prove \(p\), assume \(\neg p\) and show false.
+    \item To prove \(p \leftrightarrow q\), assume \(p\) and show \(q\) and assume \(q\) to show \(p\).
+    \item To prove \(\forall x. P(x)\) is false, find an example \(x\) for which \(P(x)\) is false.
+\end{itemize}
+Existence proofs:
+\begin{itemize}
+    \item Constructive: Find a witness \(a\) such that \(P(a)\).
+\end{itemize}
