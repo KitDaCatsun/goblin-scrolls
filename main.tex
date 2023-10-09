@@ -20,6 +20,8 @@
 }
 
 
+\renewcommand{\partname}{Module}%
+\renewcommand{\thepart}{ECM\arabic{module}}%
 \newcounter{module}
 \makeatletter
 \@addtoreset{chapter}{part}
@@ -28,11 +30,7 @@
     \setcounter{chapter}{0}%
     \setcounter{module}{#1}%
     \addtocounter{module}{-1}%
-    \renewcommand{\partname}{Module}%
-    \renewcommand{\thepart}{ECM\arabic{module}}%
     \part[#2]{#2\\\vspace{1\baselineskip}\small\emph{#3}}%
-    \renewcommand{\partname}{Part}%
-    \renewcommand{\thepart}{\Roman{part}}%
 }
 
 \renewcommand{\arraystretch}{1.2}
@@ -143,7 +141,9 @@
 \input{ECM1400/part.tex}
 \input{ECM1407/part.tex}
 \input{ECM1415/part.tex}
-\setcounter{part}{1}
+
+\renewcommand{\partname}{Part}%
+\renewcommand{\thepart}{II}%
 \input{Assessments/part.tex}
 
 \end{document}
