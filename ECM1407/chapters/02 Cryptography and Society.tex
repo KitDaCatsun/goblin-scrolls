@@ -36,10 +36,10 @@ It is very difficult to solve \cref{eq:RSA_decrypt} for \(d\) even if \(M\), \(C
 The keys are generated with the algorithm:
 \begin{lstlisting}
 1. Choose two large prime numbers $\(p\)$ and $\(q\)$.
-2. Calculate $\(n = p \times q\)$
-3. Calculate $\(z = (p = 1) \times (q - 1)\)$
-4. Choose $\(e\)$ to be relatively prime to $\(z\)$
-5. Choose $\(d\)$ such that $\(d \times e \mod z = 1\)$
+2. Calculate $\(n = p \times q\)$.
+3. Calculate $\(z = (p - 1) \times (q - 1)\)$.
+4. Choose $\(e\)$ to be relatively prime to $\(z\)$.
+5. Choose $\(d\)$ such that $\(d \times e \mod z = 1\)$.
 \end{lstlisting}
 
 \subsection{Uses of asymmetric encryption}
