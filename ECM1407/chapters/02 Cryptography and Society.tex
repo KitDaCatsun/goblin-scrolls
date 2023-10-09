@@ -1,0 +1,60 @@
+\chapter{Cryptography and Society}
+
+\section{Cryptography}
+\subsection{Encryption and Decryption}
+Encryption turns plaintext into ciphertext. The corresponding decryption algorithm will transfer this ciphertext back into plaintext.
+
+\subsection{Caesar's cipher}
+Caesar's cipher is one of the oldest recorded ciphers. Each letter in the plaintext is replaced with the letter three number behind it in the alphabet. The cipher therefore becomes useless once the algorithm is uncovered. Kerckhoff's principle states that the cipher method must not be required to be secret, instead there should be a secret key.
+
+Kerckhoff's principle can be applied to Caesar's cipher by choosing the shift for each message, as a form of key. This is still insecure due to the sufficient key-space principle: a secure encryption should have a large enough key-space that exhaustively guessing keys in infeasible.
+
+\subsection{Mono-alphabetic substitution cipher}
+The mono-alphabetic substitution cipher defines a map from each letter to some other letter, where the map is arbitrary instead of a fixed shift. This increases the key-space to \(26!\).
+
+The mono-alphabetic substitution cipher, as well as all other substitution ciphers, are not secure as information from the plaintext leaks into the ciphertext. The most important data that is leaked is the frequency of letters. This allows for frequency analysis of the ciphertext to determine the substitution that has been used.
+
+\subsection{Symmetric Cryptography}
+% tikz
+In symmetric cryptography, both parties share the same key. This is called private key encryption/decryption. Anyone who knows the private key can decrypt and encrypt messages.
+
+A stream cipher encrypts the plaintext one bit at a time, and so requires a key of the same length as the stream. A block cipher encrypts chunks of \(n\) bits at a time. In a block cipher, the whole key is used on each block and so it can be of fixed length.
+
+The issue with symmetric encryption is that the key has to be securely sent between the parties, without the ability to encrypt the key: `The key distribution problem'.
+
+\subsection{Asymmetric Cryptography}
+Asymmetric encryption uses two keys for each party, one private and one public. A mathematical relationship between the two keys allows one key to encrypt messages that can only be decrypted by the other. Therefore, if one key is kept private and the other shared, messages can be sent by encrypting with the public key and then decrypted by the private key.
+
+\subsection{RSA}
+RSA is the most common asymmetric algorithm. It uses a private key \((d, n)\) and public key \((e, n)\). The equations for encrypting and decrypting a block \(M\) are:
+\begin{align}
+    C & = M^e \mod n \label{eq:RSA_encrypt} \\
+    M & = C^d \mod n \label{eq:RSA_decrypt}
+\end{align}
+It is very difficult to solve \cref{eq:RSA_decrypt} for \(d\) even if \(M\), \(C\) and \(n\) are known.
+
+The keys are generated with the algorithm:
+\begin{lstlisting}
+1. Choose two large prime numbers $\(p\)$ and $\(q\)$.
+2. Calculate $\(n = p \times q\)$
+3. Calculate $\(z = (p = 1) \times (q - 1)\)$
+4. Choose $\(e\)$ to be relatively prime to $\(z\)$
+5. Choose $\(d\)$ such that $\(d \times e \mod z = 1\)$
+\end{lstlisting}
+
+\subsection{Uses of asymmetric encryption}
+Asymmetric encryption is rarely used to encrypt messages as it is relatively slow. Instead, it is used to exchange the keys for symmetric encryption.
+
+Asymmetric encryption is also used to create digital signatures. To prove their identity, a user can encrypt a known message using their private key. This allows any third parties to verify their identity by decrypting the message with their public key and checking it against the known message. The message that is encrypted is most often a hash of sent data.
+
+A certificate authority can issue a digital certificate to prove the ownership of a public key.
+
+\subsection{Breaking RSA}
+The security of RSA relies on the lack of an efficient factorization algorithm so that \cref{eq:RSA_decrypt} cannot be solved for \(d\). This is true for non-quantum computers, but a polynomial time algorithm is known for quantum computers.
+
+Alternative methods include:
+\begin{itemize}
+    \item Brute forcing the key.
+    \item Differential cryptanalysis.
+    \item Side-channel attacks like timing or power monitoring.
+\end{itemize}
