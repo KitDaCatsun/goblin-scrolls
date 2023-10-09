@@ -1,0 +1,61 @@
+\chapter{Set Theory}
+\section{Sets}
+\subsection{Basic Notation}
+A set is an unordered collection of objects. The objects in a set are called its elements or members. A set is said to contain all its elements. The notation \(a \in A\) denotes that \(a\) is in set \(A\), \(a \notin A\) denotes that it is not.
+
+The rooster method of denoting a set is \(S = \{a, b, c, d\}\). Ellipses can be used when a pattern is clear: \(S = \{a, b, c, \dots, \}\).
+
+\begin{example}
+    Sets include:
+    \begin{itemize}
+        \item Vowels in the english alphabet: \(V = \{a, e, i, o, u\}\).
+        \item Integers less than \(0\): \(O = \{..., -3, -2, -1\}\).
+    \end{itemize}
+\end{example}
+Set-builder notation specifies the properties that all members must satisfy.
+\begin{example}
+    \begin{equation*}
+        S = {x | x \text{ is a positive integer less than } 100}
+    \end{equation*}
+    \begin{align*}
+        [a, b] & = \{x | a \leq x \leq b\} \\
+        (a, b) & =\{x | a < x < b\}        \\
+        [a, b) & =\{x | a \leq x < b\}
+    \end{align*}
+\end{example}
+Some important sets are:
+\begin{align*}
+    \mathbf{N}      & = \{0, 1, 2, 3, \dots\}                                                       \\
+    \mathbf{Z}      & = \{\dots, -1, 0, 1, \dots\}                                                  \\
+    \mathbf{Z^+}    & = \{1, 2, 3, \dots\}                                                          \\
+    \mathbf{Q}      & = \{\frac{q}{p} | p \in \mathbf{Z}, q \in \mathbf{Z}, \text{ and } q \ne 0 \} \\
+    \mathbf{R}      & = \text{all real numbers}                                                     \\
+    \mathbf{U}      & = \text{the set containing everything under consideration}                    \\
+    \emptyset, \{\} & = \text{the empty set}
+\end{align*}
+The cardinality of a set is the number of elements in a set. If there are \(n \in \mathbf{N}\) distinct elements in \(S\), \(S\) is finite. If \(n \notin \mathbf{N}\), the set is infinite and has no cardinality. The cardinality of set \(S\) is denoted \(|S|\).
+
+\subsection{Set equality}
+Two sets \(A\) and \(B\) are equal if and only if they have the same elements:
+\begin{equation}
+    \label{eq:set_equivalence}
+    A = B \leftrightarrow \forall x. (x \in A \leftrightarrow x \in B)
+\end{equation}
+The order and repetitions do not affect equivalence.
+
+\subsection{Subsets}
+The set \(A\) is a subset of \(B\), denoted \(A \subseteq B\), if and only if every element of \(A\) is also in \(B\):
+\begin{equation*}
+    \label{eq:subset}
+    A \subseteq B \leftrightarrow \forall x. (x \in A \rightarrow x \in B)
+\end{equation*}
+Note how this is true even if \(A = B\). If \(A \neq B\) as well, then \(A\) is a proper subset (\(\subset\)) of \(B\).
+
+The power set, \(\wp(A)\), of a set \(A\) is the set that contains all subsets of set \(A\). \(|\wp(A)| = 2^{|A|}\)\footnote{Except \(|\wp(\emptyset)| = 1\).}, and will always include \(\emptyset\) and \(A\).
+\begin{example}
+    \begin{align*}
+        A      & = \{a, b\}                              \\
+        \wp(A) & = \{\emptyset, \{a\}, \{b\}, \{a, b\}\}
+    \end{align*}
+\end{example}
+To prove that \(A \subseteq B\), find an element \(x\) such that \(x \in A\) with \(x \notin B\) (proof by counterexample).
