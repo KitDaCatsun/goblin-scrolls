@@ -1,0 +1,41 @@
+\chapter{Predicate Logic}
+\section{System Specifications}
+\begin{enumerate}
+    \item \(\forall u. m\)
+    \item \(\forall p. l \rightarrow a\)
+    \item \(f \leftrightarrow p\)
+    \item \(\exists r. t \land p \rightarrow r\)
+\end{enumerate}
+
+\section{Rules of Inference}
+\begin{proof}
+    \begin{equation*}
+        \begin{array}{rll}
+            \text{1.} & (\neg r \lor \neg f) \rightarrow (s \land l) & \text{Premise}                       \\
+            \text{2.} & s \rightarrow t                              & \text{Premise}                       \\
+            \text{3.} & \neg t                                       & \text{Premise}                       \\
+            \text{4.} & \neg(\neg r \lor \neg f) \lor (s \land l)    & \text{Law of conditionals using (1)} \\
+            \text{5.} & (r \land f) \lor (s \land l)                 & \text{De Morgan's on (4)}            \\
+            \text{6.} & \neg t \rightarrow \neg s                    & \text{Contrapositive of (2)}         \\
+            \text{7.} & \neg s                                       & \text{Modus ponens from (3) and (6)} \\
+            \text{7.} & r \land f                                    & \text{Domination law on (4)}         \\
+            \text{8.} & r                                            & \text{Simplification on (7)}         \\
+        \end{array}
+    \end{equation*}
+\end{proof}
+
+
+\section{Direct Proof}
+\begin{proof}
+    \begin{theorem}
+        The sum of two even integers is even.
+    \end{theorem}
+    \begin{enumerate}
+        \item Let the even integers \(a = 2p\), and \(b = 2q\).
+        \item Assume the statement is true: \(a + b = 2r\).
+        \item \(2p + 2q = 2r\).
+        \item Factorise the LHS: \(2(p + q) = 2r\).
+        \item Let \(r = p + q\).
+        \item \(2r = 2r\).
+    \end{enumerate}
+\end{proof}

@@ -21,9 +21,6 @@
     breaklinks=false,
 }
 
-
-\renewcommand{\partname}{Module}%
-\renewcommand{\thepart}{ECM\arabic{module}}%
 \newcounter{module}
 \makeatletter
 \@addtoreset{chapter}{part}
@@ -31,8 +28,11 @@
 \newcommand{\module}[3]{%
     \setcounter{chapter}{0}%
     \setcounter{module}{#1}%
-    \addtocounter{module}{-1}%
+    \renewcommand{\partname}{Module}%
+    \renewcommand{\thepart}{ECM\arabic{module}}%
     \part[#2]{#2\\\vspace{1\baselineskip}\small\emph{#3}}%
+    \renewcommand{\partname}{Part}%
+    \renewcommand{\thepart}{\Roman{part}}%
 }
 
 \renewcommand{\arraystretch}{1.2}
@@ -64,6 +64,7 @@
 
 \theoremstyle{definition}
 \newtheorem{example}{Example}[section]
+\newtheorem{theorem}{Theorem}[section]
 
 \newcommand*\parttitle{}
 \let\origpart\part
@@ -139,13 +140,21 @@
 \fancyfoot{}
 \fancyfoot[C]{\thepage}
 
+\setcounter{part}{1}
+\part{Notes}
 \input{ECM1011/part.tex}
 \input{ECM1400/part.tex}
 \input{ECM1407/part.tex}
 \input{ECM1415/part.tex}
 
-\renewcommand{\partname}{Part}%
-\renewcommand{\thepart}{II}%
+\setcounter{part}{2}
+\part{Workshops}
+\input{Workshops/ECM1011/part.tex}
+\input{Workshops/ECM1400/part.tex}
+\input{Workshops/ECM1407/part.tex}
+\input{Workshops/ECM1415/part.tex}
+
+\setcounter{part}{3}
 \input{Assessments/part.tex}
 
 \end{document}
