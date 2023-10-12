@@ -58,3 +58,39 @@ Alternative methods include:
     \item Differential cryptanalysis.
     \item Side-channel attacks like timing or power monitoring.
 \end{itemize}
+
+\section{Attacking Encryption}
+\subsection{Side-channel attacks}
+Side-channel attacks use data accidentally exposed by a system, for instance the time that string comparisons take might be related to how similar they are.
+
+\subsection{Heartbleed}
+The implementation of an alive ping (`heartbeat') in OpenSSL allowed for a buffer overflow that could leak data from the server. This allowed encryption keys to be extracted from the server's memory.
+
+\section{Internet Censorship}
+\subsection{Websites Marcos has been blocked from}
+\begin{itemize}
+    \item Sci Hub
+    \item Library Genesis
+    \item The Wikipedia page for Virgin Killer
+\end{itemize}
+
+\subsection{The Onion Router}
+The Onion Router (Tor) enables anonymous browsing of websites by routing traffic through multiple nodes, called relays. With three relays, no individual node knows where the message originates or is going.
+
+All that an Internet Service Provider (ISP) could see is that Tor is being used.
+
+The Tor project is used to bypass censorship: news sites that are blocked by governments can be accessed, as well as shops selling illegal goods or services.
+
+\subsection{HTTP and HTTPS}
+HTTP does not encrypt traffic, whereas HTTPS does. Even with HTTP the destination can still be seen, unlike Tor.
+
+\section{Cryptography and Society}
+\subsection{Cryptography}
+Encryption technology was an item on the United States Munitions list. Encryption implementations that use keys longer than 40 bits could not be exported.
+
+In 1991, Phil Zimmermann created PGP (Pretty Good Privacy) that allowed users to encrypt data with keys longer than 40 bits. After it was shared outside the US on the internet, he was criminally investigated. Zimmermanna's law says that the ability of computers to track people doubles every eighteen months.
+
+\subsection{Snowden Leaks}
+Edward Snowden leaked information on the US Government's surveillance on its own people. Some consider him a traitor, others a hero. These leaks led to a massive increase in the use of HTTPS and end-to-end encryption.
+
+Many end-to-end encryption applications are blocked in various countries.
