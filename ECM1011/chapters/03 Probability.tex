@@ -1,0 +1,158 @@
+\chapter{Probability}
+
+\section{Probability distributions}
+\subsection{Probabilities}
+For a distribution with probability density function \(\mathrm{f}(x)\):
+\begin{equation}
+    \mathrm{P}(a < x < b) = \int_a^b \mathrm{f}(x)
+\end{equation}
+
+\subsection{Binning}
+Binning a distribution refers to the process of taking a continuous distribution and turning it into a discrete distribution by creating discrete bin of values within ranges.
+
+The bin sizes need to be chosen carefully so that key trends in the data are represented without showing meaningless noise in the data.
+
+\subsection{Expected Value}
+For a discrete distribution:
+\begin{equation*}
+    \mathrm{E}(X) = \mu_X = \sum x P(X = x)
+\end{equation*}
+For a continuous distribution:
+\begin{equation*}
+    \mathrm{E}(X) = \mu_X = \int x P(X = x) dx
+\end{equation*}
+
+\subsection{Variance and Standard Deviation}
+For a discrete distribution:
+\begin{equation}
+    \mathrm{Var}(X) = \sigma_X^2 = \mathrm{E}(X^2) - \mathrm{E}(X)^2
+\end{equation}
+For a continuous distribution:
+\begin{equation}
+    \mathrm{Var}(X) = \sigma_X^2 = \mathrm{E}(X^2) - \mathrm{E}(X)^2
+\end{equation}
+Standard deviation is the square root of variance.
+
+\subsection{Real data}
+Real probability distributions can be described as:
+\begin{itemize}
+    \item Symmetric, or have skew to the left or right
+    \item Uniform
+    \item Unimodal, Bimodal, or Multimodal
+\end{itemize}
+
+\section{Common Distributions}
+\subsection{Bell Distributions}
+Bell shaped distributions include the binomial and normal. Most of the data is in the center. The shape is unimodal and symmetric with little skew.
+
+\subsection{One-sided Distributions}
+Ome-sided distributions have skew to one side, often because they are only valid for \(x > 0\). The Chi-squared, log normal, and Poisson are one-sided.
+
+\subsection{Bernoulli Distributions}
+A bernoulli distribution has two outcomes with probabilities \(p\) and \(1 - p\).
+
+\section{Poisson Distributions}
+\subsection{The Poisson distribution}
+The Poisson distribution is notated as:
+\begin{align*}
+    X                 & \sim \mathrm{Po}(\lambda)          \\
+    \mathrm{P}(X = x) & = \frac{e^{-\lambda}\lambda^x}{x!}
+\end{align*}
+Where \(\lambda\) is the mean rate.
+
+\subsection{Modelling with the Poisson distribution}
+The Poisson distribution is used to model the number of times \(X\) that a particular event occurs within a given interval. This could be an interval of any type, e.g. time or space.
+
+In order for the Poisson distribution to be a good model, events must:
+\begin{itemize}
+    \item Be independent.
+    \item Occur singly within their interval.
+    \item Occur at a constant average rate.
+\end{itemize}
+
+\subsection{Adding Poisson distributions}
+If \(X \sim \mathrm{Po}(\lambda)\) and \(Y \sim \mathrm{Po}(\mu)\):
+\begin{equation*}
+    X + Y \sim \mathrm{Po}(\lambda + \mu)
+\end{equation*}
+
+\subsection{Mean and Variance of a Poisson distribution}
+If \(X \sim \mathrm{Po}(\lambda)\):
+\begin{align*}
+    \mathrm{E}(X)   & = \lambda \\
+    \mathrm{Var}(X) & = \lambda
+\end{align*}
+The equivalence of the expected value and variance can be used to check that the Poisson is a suitable model.
+
+\section{Exponential Distributions}
+\subsection{The Exponential Distribution}
+The exponential distribution has the density function:
+\begin{equation*}
+    P(X = x) = \lambda e^{-\lambda x} \{x \geq 0\}
+\end{equation*}
+
+\subsection{Mean and Variance of an Exponential distribution}
+If \(X\) follows an exponential distribution:
+\begin{align*}
+    \mathrm{E}(X)   & = \frac{1}{\lambda}     \\
+    \mathrm{Var}(X) & = \frac{1}{\lambda ^ 2}
+\end{align*}
+
+\section{Bayesian networks}
+\subsection{Bayesian statistics}
+For an event \(E\) that is dependent only on events \(A\) and \(B\), the probability \(\mathrm{P}(E)\) can be found with:
+\begin{equation}
+    \mathrm{P}(E) = \mathrm{P}(E | A) \times P(A) + \mathrm{P}(E | B) \times \mathrm{P}(B)
+    \label{eq:dependent_probabilities}
+\end{equation}
+
+\subsection{Bayesian networks}
+A chain of dependent events can be shown as a graph. The probability of any event in the graph depends only on its parents. The graph must be a directed acyclic graph (DAC).
+
+This network is called a Bayesian network.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}
+            \tikzset{
+                ->,
+                >=stealth',
+                node distance=4cm,
+                every state/.style={thick},
+                initial text=\( \),
+            }
+
+            \node[state] (alarm) {Alarm set?};
+            \node[state, below of = alarm] (overslept) {Overslept?};
+            \node[state, right of = overslept] (bus) {Bus late?};
+            \node[state, below of = overslept] (ontime) {On time?};
+
+
+            \draw (alarm) edge[bend right] (overslept);
+            \draw (overslept) edge[bend left] (ontime);
+            \draw (bus) edge[bend left] (ontime);
+
+        \end{scope}
+    \end{tikzpicture}
+    \caption{Example Bayesian network where being on time depends on oversleeping and the bus being late, and oversleeping depends on the alarm being set.}
+    \label{fig:bayesian_network}
+\end{figure}
+
+\subsection{Bayes' Theorem}
+Rearranging \cref{eq:dependent_probabilities} gives Bayes' theorem:
+\begin{equation}
+    \mathrm{P}(A|B) = \frac{\mathrm{P}(B|A) \times \mathrm{P}(A)}{\mathrm{P}(B)}
+    \label{eq:bayes_theorem}
+\end{equation}
+\begin{example}
+    For a test for a disease, the equation would look like:
+    \begin{equation*}
+        \mathrm{P}(infected|\textit{tested positive}) = \frac{\mathrm{P}(\textit{tested positive}|infected) \times \mathrm{P}(infected)}{\mathrm{P}(\textit{tested positive})}
+    \end{equation*}
+\end{example}
+
+\subsection{Application of Bayes' Theorem}
+The sensitivity of a test is the probability of a true positive result (\(\mathrm{P}(T_+|B)\)). The specificity is the probability of a true negative result (\(\mathrm{P}(T_- | \neg B)\)).
+
+If \(\mathrm{P}(B)\) is small, then \(\mathrm{P}(B|A)\) will also be small.
