@@ -25,11 +25,11 @@ Set-builder notation specifies the properties that all members must satisfy.
 \end{example}
 Some important sets are:
 \begin{align*}
-    \mathbf{N}      & = \{0, 1, 2, 3, \dots\}                                                       \\
-    \mathbf{Z}      & = \{\dots, -1, 0, 1, \dots\}                                                  \\
-    \mathbf{Z^+}    & = \{1, 2, 3, \dots\}                                                          \\
-    \mathbf{Q}      & = \{\frac{q}{p} | p \in \mathbf{Z}, q \in \mathbf{Z}, \text{ and } q \ne 0 \} \\
-    \mathbf{R}      & = \text{all real numbers}                                                     \\
+    \mathbb{N}      & = \{0, 1, 2, 3, \dots\}                                                       \\
+    \mathbb{Z}      & = \{\dots, -1, 0, 1, \dots\}                                                  \\
+    \mathbb{Z^+}    & = \{1, 2, 3, \dots\}                                                          \\
+    \mathbb{Q}      & = \{\frac{q}{p} | p \in \mathbf{Z}, q \in \mathbf{Z}, \text{ and } q \ne 0 \} \\
+    \mathbb{R}      & = \text{all real numbers}                                                     \\
     \mathbf{U}      & = \text{the set containing everything under consideration}                    \\
     \emptyset, \{\} & = \text{the empty set}
 \end{align*}
@@ -78,3 +78,113 @@ The complement, \(\overline{A}\), of a set \(A\), is the set:
 \begin{equation*}
     U - A = A' = \overline{A} = \{x | x \in A \land x \notin A\}
 \end{equation*}
+
+\subsection{Set identities}
+Identities:
+\begin{align}
+    A \cup \emptyset & = A \\
+    A \cap U         & = A
+\end{align}
+Domination:
+\begin{align}
+    A \cup U         & = U         \\
+    A \cap \emptyset & = \emptyset
+\end{align}
+Idempotent:
+\begin{align}
+    A \cup A & = A \\
+    A \cap A & = A
+\end{align}
+Complementation:
+\begin{align}
+    \overline{\overline{A}} = A
+\end{align}
+Commutative:
+\begin{align}
+    A \cup B & = B \cup A \\
+    A \cap B & = B \cap A
+\end{align}
+Associative:
+\begin{align}
+    A \cup (B \cup C) & = (A \cup B) \cup C \\
+    A \cap (B \cap C) & = (A \cap B) \cap C
+\end{align}
+Distributive:
+\begin{align}
+    A \cap (B \cup C) & = (A \cap B) \cup (A \cap C) \\
+    A \cup (B \cap C) & = (A \cup B) \cap (A \cup C)
+\end{align}
+De Morgan's:
+\begin{align}
+    \overline{A \cup B} & = \overline{A} \cap \overline{B} \\
+    \overline{A \cap B} & = \overline{A} \cup \overline{B}
+\end{align}
+Absorption:
+\begin{align}
+    A \cup (A \cap B) & = A \\
+    A \cap (A \cup B) & = A \\
+\end{align}
+
+\subsection{Proving Identities}
+If \(A \subseteq B \land B \subseteq A\), then \(A = B\).
+
+\begin{example}
+    Show that \(\overline{A \cap B} = \overline{A} \cup \overline{B}\).
+    \begin{proof}
+        \(\overline{A} \cup \overline{B} \subseteq \overline{A \cap B}\)
+        \begin{enumerate}
+            \item Assume \(x \in \overline{A \cap B}\).
+            \item Therefore \(x \notin A \cap B\).
+            \item Therefore \(x \notin A \lor x \notin B\).
+            \item Therefore \(x \in \overline{A} \lor x \in \overline{B}\).
+            \item Therefore \(x \in \overline{A} \cup \overline{B}\).
+        \end{enumerate}
+    \end{proof}
+    The proof continues by showing \(\overline{A \cap B} \subseteq \overline{A} \cup \overline{B}\) in a similar way.
+\end{example}
+
+Equational reasoning can also be used to derive new identities from known ones.
+
+\subsection{Membership tables}
+Membership tables are the set equivalent of a truth table. A \(1\) means an element is in the column's set, a \(0\) means it is not.
+
+\begin{example}
+    Membership table of \(A \cup B\):
+
+    \begin{tabular}{ccc}
+        \toprule
+        \(A\) & \(B\) & \(A \cup B\) \\
+        \midrule
+        0     & 0     & 0            \\
+        0     & 1     & 1            \\
+        1     & 0     & 1            \\
+        1     & 1     & 1            \\
+        \bottomrule
+    \end{tabular}
+\end{example}
+
+\section{Functions}
+\section{Basic Notation}
+A function \(f\) from a nonempty set \(A\) to a nonempty set \(B\) is an assignment of each element of \(A\) to exactly one element of \(B\). A function is denoted:
+\begin{equation*}
+    f: A \rightarrow B
+\end{equation*}
+\(f(a) = b\) means \(b\) is the unique element of \(B\) assigned by the function \(f\) to the element \(a\) of \(A\).
+
+In this case, \(A\) is the domain and \(B\) is the codomain. \(b\) is the image of \(a\) under \(f\), and \(a\) is the preimage. The range of \(f\), denoted \(f(A)\), is the set of all images of points in \(A\) under \(f\).
+
+Two functions are equal if they have the same domain, the same codomain, and map each element of the domain to the same element of the codomain.
+
+A function is said to be one-to-one or injective if and only if \(f(a) = f(b)\) implies that \(a = b\) for all \(a\) and \(b\) in the domain of \(f\).
+
+A function \(f\) is called surjective if and only if for every element \(b \in B\) there is an element \(a \in A\) with \(f(a) = b\).
+
+A function is a one-to-one correspondence or bijective, if it is both surjective and injective. That is, every \(b \in B\) is the image of exactly one \(a \in A\), for every \(b\).
+
+To prove the properties of a function \(f: A \rightarrow B\):
+\begin{itemize}
+    \item To show that \(f\) is injective assume \(f(x) = f(y)\) and show \(x = y\).
+    \item To show that \(f\) is not injective find \(x, y \in A\) such that \(x \neq y\) and \(f(x) = f(y)\).
+    \item To show that \(f\) is surjective consider an arbitrary element \(y \in B\) and find an element \(x \in A\) such that \(f(x) = y\).
+    \item To show that \(f\) is not surjective find \(y \in B\) such that \(f(x) \neq y\) for all \(x \in A\).
+\end{itemize}
