@@ -15,28 +15,28 @@ A predicate is a proposition that contains variables. Variables denote subjects 
 Predicates with multiple variables are denoted \(Q(x, y)\).
 
 \subsection{Quantifiers}
-The universal quantifier \(\forall\) means `for all'. \(\forall x. P(x)\) asserts that \(P(x)\) is true for every \(x\) in the domain. The existential quantifier \(\exists\) means `there exists'. \(\exists x. P(x)\) asserts that \(P(x)\) is true for some \(x\) in the domain\footnote{\(\exists!\) is sometimes used to denote `there exists exactly one'.}. Quantifiers have higher precedence than all logical quantifiers.
+The universal quantifier \(\forall\) means `for all'. \(\forall x\ldotp P(x)\) asserts that \(P(x)\) is true for every \(x\) in the domain. The existential quantifier \(\exists\) means `there exists'. \(\exists x\ldotp P(x)\) asserts that \(P(x)\) is true for some \(x\) in the domain\footnote{\(\exists!\) is sometimes used to denote `there exists exactly one'.}. Quantifiers have higher precedence than all logical quantifiers.
 
 The domain is often denoted by \(U\), for universe of discourse.
 
 \begin{example}
     If \(P(x)\) denotes `\(x\) is even', and \(U\) is the integers, then:
     \begin{itemize}
-        \item \(\forall x. P(x)\) is false
-        \item \(\exists x. P(x)\) is true
+        \item \(\forall x\ldotp P(x)\) is false
+        \item \(\exists x\ldotp P(x)\) is true
     \end{itemize}
 \end{example}
 The truth values of a predicate with a domain depends on both the domain and the predicate.
 
-Quantifiers can be nested, so that a predicate with multiple quantifiers can be written. The statement `for every \(x\), there is a \(y\)\dots' is denoted \(\forall x \exists y. \dots\). The order of the quantifiers is important. For a proposition with the nested quantifiers \(\exists y \forall x\) to be true, the predicate must hold for some values of \(y\), no matter the value of \(x\).
+Quantifiers can be nested, so that a predicate with multiple quantifiers can be written. The statement `for every \(x\), there is a \(y\)\dots' is denoted \(\forall x \exists y\ldotp \dots\). The order of the quantifiers is important. For a proposition with the nested quantifiers \(\exists y \forall x\) to be true, the predicate must hold for some values of \(y\), no matter the value of \(x\).
 
 \subsection{Equivalence}
 Two statements involving predicates and quantifiers are logically equivalent if and only if they have the same truth value for every predicate substituted into these statements and for every domain used for the variables in the expressions.
 
 De Morgan's laws for quantifiers are:
 \begin{align*}
-    \neg(\forall x. P(x)) & \equiv \exists x. \neg P(x) \\
-    \neg(\exists x. P(x)) & \equiv \forall x. \neg P(x)
+    \neg(\forall x\ldotp P(x)) & \equiv \exists x\ldotp \neg P(x) \\
+    \neg(\exists x\ldotp P(x)) & \equiv \forall x\ldotp \neg P(x)
 \end{align*}
 
 \section{Rules of inference}
@@ -167,7 +167,7 @@ A valid argument is a sequence of statements such that each statement is either 
 Universal instantiation:
 \begin{equation}
     \begin{array}{r l}
-                   & \forall x. P(x) \\
+                   & \forall x\ldotp P(x) \\
         \cline{2-2}
         \therefore & P(c)
     \end{array}
@@ -177,14 +177,14 @@ Universal generalization:
     \begin{array}{r l}
                    & P(c) \text{ for an arbitrary } c \\
         \cline{2-2}
-        \therefore & \forall x. P(x)
+        \therefore & \forall x\ldotp P(x)
     \end{array}
 \end{equation}
 
 Existential instantiation:
 \begin{equation}
     \begin{array}{r l}
-                   & \exists x. P(x)                  \\
+                   & \exists x\ldotp P(x)             \\
         \cline{2-2}
         \therefore & P(c) \text{ for some element } c
     \end{array}
@@ -194,7 +194,7 @@ Existential generalization:
     \begin{array}{r l}
                    & P(c) \text{ for some element } c \\
         \cline{2-2}
-        \therefore & \exists x. P(x)
+        \therefore & \exists x\ldotp P(x)
     \end{array}
 \end{equation}
 
@@ -223,7 +223,7 @@ For other statements:
 \begin{itemize}
     \item Proof by contradiction: to prove \(p\), assume \(\neg p\) and show false.
     \item To prove \(p \leftrightarrow q\), assume \(p\) and show \(q\) and assume \(q\) to show \(p\).
-    \item To prove \(\forall x. P(x)\) is false, find an example \(x\) for which \(P(x)\) is false.
+    \item To prove \(\forall x\ldotp P(x)\) is false, find an example \(x\) for which \(P(x)\) is false.
 \end{itemize}
 Existence proofs:
 \begin{itemize}
