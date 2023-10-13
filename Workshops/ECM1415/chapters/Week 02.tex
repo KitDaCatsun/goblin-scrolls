@@ -1,35 +1,32 @@
 \chapter{Predicate Logic}
 \section{System Specifications}
 \begin{enumerate}
-    \item \(\forall u. m\)
-    \item \(\forall p. l \rightarrow a\)
-    \item \(f \leftrightarrow p\)
-    \item \(\exists r. t \land p \rightarrow r\)
+    \item \(\forall u. M(u)\)
+    \item \(\forall u. \space  f \rightarrow A(u)\)
+    \item \(S(firewall, diagnostic) \rightarrow S(\textit{proxy server}, diagnostic)\)
+    \item \((T(100) \land \neg T(500) \land \neg S(\textit{proxy server}, diagnostic)) \rightarrow \exists r. S(r, normal)\)
 \end{enumerate}
 
 \section{Rules of Inference}
 \begin{proof}
     \begin{equation*}
         \begin{array}{rll}
-            \text{1.} & (\neg r \lor \neg f) \rightarrow (s \land l) & \text{Premise}                       \\
-            \text{2.} & s \rightarrow t                              & \text{Premise}                       \\
-            \text{3.} & \neg t                                       & \text{Premise}                       \\
-            \text{4.} & \neg(\neg r \lor \neg f) \lor (s \land l)    & \text{Law of conditionals using (1)} \\
-            \text{5.} & (r \land f) \lor (s \land l)                 & \text{De Morgan's on (4)}            \\
-            \text{6.} & \neg t \rightarrow \neg s                    & \text{Contrapositive of (2)}         \\
-            \text{7.} & \neg s                                       & \text{Modus ponens from (3) and (6)} \\
-            \text{7.} & r \land f                                    & \text{Domination law on (4)}         \\
-            \text{8.} & r                                            & \text{Simplification on (7)}         \\
+            \text{1.} & (\neg r \lor \neg f) \rightarrow (s \land l) & \text{Premise}                        \\
+            \text{2.} & s \rightarrow t                              & \text{Premise}                        \\
+            \text{3.} & \neg t                                       & \text{Premise}                        \\
+            \text{4.} & \neg(\neg r \lor \neg f) \lor (s \land l)    & \text{Law of conditionals using (1)}  \\
+            \text{5.} & (r \land f) \lor (s \land l)                 & \text{De Morgan's on (4)}             \\
+            \text{6.} & \neg s                                       & \text{Modus tollens from (2) and (3)} \\
+            \text{7.} & r \land f                                    & \text{Domination law on (4)}          \\
+            \text{8.} & r                                            & \text{Simplification on (7)}          \\
         \end{array}
     \end{equation*}
 \end{proof}
-
+Better solution avoids using law of conditionals by finding the contrapositive of (1) and using modus tollens.
 
 \section{Direct Proof}
 \begin{proof}
-    \begin{theorem}
-        The sum of two even integers is even.
-    \end{theorem}
+    The sum of two even integers is even.
     \begin{enumerate}
         \item Let the even integers \(a = 2p\), and \(b = 2q\).
         \item Assume the statement is true: \(a + b = 2r\).
