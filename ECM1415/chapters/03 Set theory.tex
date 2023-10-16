@@ -164,7 +164,7 @@ Membership tables are the set equivalent of a truth table. A \(1\) means an elem
 \end{example}
 
 \section{Functions}
-\section{Basic Notation}
+\subsection{Basic Notation}
 A function \(f\) from a nonempty set \(A\) to a nonempty set \(B\) is an assignment of each element of \(A\) to exactly one element of \(B\). A function is denoted:
 \begin{equation*}
     f: A \rightarrow B
@@ -188,3 +188,9 @@ To prove the properties of a function \(f: A \rightarrow B\):
     \item To show that \(f\) is surjective consider an arbitrary element \(y \in B\) and find an element \(x \in A\) such that \(f(x) = y\).
     \item To show that \(f\) is not surjective find \(y \in B\) such that \(f(x) \neq y\) for all \(x \in A\).
 \end{itemize}
+
+\subsection{Inverse functions}
+A function has an inverse if it is bijective. If \(f\) is a bijection from \(A\) to \(B\), \(f^{-1}\) is a bijection from \(B\) to \(A\). \(f^{-1}(y) = x \leftrightarrow f(x) = y\).
+
+\subsection{Function composition}
+If \(f: B \rightarrow C\) and \(g: A \rightarrow B\), then the composition \(f \circ g\) is a function from \(A\) to \(c\). \(f \circ g (x) = f(g(x))\).

@@ -1,0 +1,41 @@
+\chapter{Relations}
+
+\section{Properties of Relations}
+\subsection{Relations}
+Relations allow for the representation of many-to-many mappings, unlike functions.
+
+The ordered \(n\)-tuple \((a_1, a_2, \dots, a_n)\) is the ordered collection that has \(a_1\) as its first element, \(a_2\) as its second, ect. \(2\)-tuples are called ordered pairs. Two tuples are equal if they have the same elements in the same order.
+
+The cartesian product of the sets \(A_1, A_2, \dots, A_n\), denoted \(A_1 \times A_2 \times \dots \times A_n\), is the set of ordered \(n\)-tuples \((a_1, a_2, \dots, a_n)\) where \(a_i\) belongs to \(A_i\) for \(i = 1, \dots, n\):
+\begin{equation*}
+    A_1 \times A_2 \times \dots A_n = \{(a_1, a_2, \dots, a_n) | a_i \in A_i \text{ for } i = 1, 2, \dots, n\}
+\end{equation*}
+
+A binary relation \(R\) from a set \(A\) to a set \(B\) is a subset \(R \subseteq A \times B\).
+\begin{example}
+    Let \(A = {0, 1, 2}\) and \(B = \{a, b\}\), then:
+    \(\{(0, a), (0, b), (1, a), (2, b)\}\) is a relation from \(A\) to \(B\)
+\end{example}
+
+\subsection{Forming new relations}
+The set operations \(\cup\), \(\cap\), and \(-\), can be used on relations.
+
+The composition of two functions \(R_2 \circ R_1\), where \(R_1\) maps \(A\) to \(B\), and \(R_2\) from \(B\) to \(c\), is defined as:
+\begin{equation*}
+    \{(a, c) | \exists b \in B\cdotp (a, b) \in R_1 \land (b, c) \in R_2\}
+\end{equation*}
+The powers \(R^n\) of a relation \(R\) is \(R \circ R \circ \dots \circ R\) \(n\) times.
+
+\section{Properties of relations}
+\subsection{Properties}
+A relation is reflexive if and only if \((a, a) \in R\) for every element \(a \in A\):
+\begin{equation*}
+    \forall x \cdotp (x \in A \rightarrow (x, x) \in R)
+\end{equation*}
+\begin{example}
+    The relations on \(\mathbb{Z}\) are reflexive:
+    \begin{itemize}
+        \item \(\{(a, b) | a = b\}\)
+        \item \(\{a, b) | a \leq b\}\)
+    \end{itemize}
+\end{example}
