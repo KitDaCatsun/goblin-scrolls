@@ -156,3 +156,27 @@ Rearranging \cref{eq:dependent_probabilities} gives Bayes' theorem:
 The sensitivity of a test is the probability of a true positive result (\(\mathrm{P}(T_+|B)\)). The specificity is the probability of a true negative result (\(\mathrm{P}(T_- | \neg B)\)).
 
 If \(\mathrm{P}(B)\) is small, then \(\mathrm{P}(B|A)\) will also be small.
+
+\section{Statistical Inference}
+\subsection{Assumptions}
+We start with a prior distribution that us updated with more data to generate a posterior distribution. This is the Bayesian approach, because priors are being used. The frequentist approach does not use priors.
+
+There is no single estimate as output, instead a distribution of values.
+
+\subsection{Maximum Likelihood Estimation}
+From a sample of data \(x_1, x_2, \dots, x_n\), the best parameters for the distribution \(X\) are the ones that give the highest value of \(\mathrm{P}(x_1) \times \mathrm{P}(x_2) \times \dots \times \mathrm{P}(x_n)\).
+
+For a normal distribution this means where:
+\begin{align*}
+    \frac{\delta P}{\delta \theta} & = 0 \\
+    \frac{\delta P}{\delta \mu}    & = 0
+\end{align*}
+This gives a maximum likelihood estimate. The likelihood of the parameters taking certain values given some data is the probability of the model producing that data given those parameters: \(\mathrm{L}(\mu, \sigma | data) = \mathrm{P}(data | \mu, \sigma)\).
+For a distribution with parameter \(\theta\) with data \(x\):
+\begin{equation}
+    \mathrm{P}(\theta | x) = \frac{\mathrm{P}(x | \theta)\mathrm{P}(\theta)}{\mathrm{P}(x)}
+\end{equation}
+The denominator acts as a normalising factor so that all probabilities sum to \(1\). The statement `find \(\theta\) such that \(\mathrm{P}(\theta|x)\) has its maximum value' is denoted:
+\begin{equation*}
+    \hat{\theta} = \arg \max_\theta \mathrm{P}(\theta|x)
+\end{equation*}
