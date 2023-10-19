@@ -1,0 +1,42 @@
+\chapter{Inference}
+\section{Statistical Inference}
+\subsection{Assumptions}
+We start with a prior distribution that us updated with more data to generate a posterior distribution. This is the Bayesian approach, because priors are being used. The frequentist approach does not use priors.
+
+There is no single estimate as output, instead a distribution of values.
+
+\subsection{Maximum Likelihood Estimation}
+From a sample of data \(x_1, x_2, \dots, x_n\), the best parameters for the distribution \(X\) are the ones that give the highest value of \(\mathrm{P}(x_1) \times \mathrm{P}(x_2) \times \dots \times \mathrm{P}(x_n)\).
+
+For a normal distribution this means where:
+\begin{align*}
+    \frac{\delta P}{\delta \theta} & = 0 \\
+    \frac{\delta P}{\delta \mu}    & = 0
+\end{align*}
+This gives a maximum likelihood estimate. The likelihood of the parameters taking certain values given some data is the probability of the model producing that data given those parameters: \(\mathrm{L}(\mu, \sigma | data) = \mathrm{P}(data | \mu, \sigma)\).
+For a distribution with parameter \(\theta\) with data \(x\):
+\begin{equation}
+    \mathrm{P}(\theta | x) = \frac{\mathrm{P}(x | \theta)\mathrm{P}(\theta)}{\mathrm{P}(x)}
+\end{equation}
+The denominator acts as a normalising factor so that all probabilities sum to \(1\). The statement `find \(\theta\) such that \(\mathrm{P}(\theta|x)\) has its maximum value' is denoted:
+\begin{equation*}
+    \hat{\theta} = \arg \max_\theta \mathrm{P}(\theta|x)
+\end{equation*}
+
+\section{Classifiers}
+\subsection{Naive Bayes' Classifier}
+A naive spam detector could work using Bayes' formula:
+\begin{align*}
+    \mathrm{P}(spam|message) & = \frac{\mathrm{P}(message|spam)\mathrm{P(spam)}}{\mathrm{P}(message)}                                     \\
+    \mathrm{P}(message|spam) & = \mathrm{P}(word_1 | spam) \times \mathrm{P}(word_2 | spam) \times \dots \times \mathrm{P}(word_n | spam)
+\end{align*}
+This method assumes that the features (word counts) are independent from each other. It is for this reason that the method is naive.
+
+The model produces likelihoods, as it finds the probability of a data point (the message) given a parameter value (spam or not spam).
+
+The denominator \(\mathrm{P}(message)\) can be ignored, as we only care about which values are higher. \(\mathrm{P}(spam)\) is a prior assumption.
+
+Because computers have limited floating point precision, it may be useful to use the \(\log\) of the probabilities so that they are not so small.
+
+\subsection{Gaussian Naive Bayes' Classifier}
+The Gaussian method uses maximum value estimation to model the features of each class. These models can then be used to find the probability of a given feature given each class, in a similar way to a plain Bayes' Classifier.
