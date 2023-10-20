@@ -9,7 +9,7 @@
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-\usepackage{xcolor, textgreek, amssymb, amsmath, amsthm, tikz, graphicx, multirow, booktabs, bbold, listings, fancyhdr, titlecaps, cleveref}
+\usepackage{xcolor, textgreek, amssymb, amsmath, amsthm, tikz, graphicx, multirow, booktabs, bbold, listings, fancyhdr, titlecaps, cleveref, appendix}
 
 \usetikzlibrary{automata, positioning, arrows, arrows.meta, calc, decorations.markings, circuits.logic.US}
 
@@ -126,13 +126,17 @@
 
     \vspace{1\baselineskip}
 
-    As Unveiled to Him By
+    As unveiled to Him by
 
     \vspace{0.5\baselineskip}
 
     {\scshape\Large Jah}
 
-    \vspace{10\baselineskip}
+    \vspace{5\baselineskip}
+
+    {\scshape\normalsize United against Babylon}
+
+    \vspace{5\baselineskip}
 
     Dedicated to
 
@@ -155,18 +159,18 @@
 \fancyfoot{}
 \fancyfoot[C]{\thepage}
 
-\part{Notes}
 \input{ECM1011/part.tex}
 \input{ECM1400/part.tex}
 \input{ECM1407/part.tex}
 \input{ECM1415/part.tex}
 
-\part{Workshops}
-\input{Workshops/ECM1011/part.tex}
-\input{Workshops/ECM1400/part.tex}
-\input{Workshops/ECM1407/part.tex}
-\input{Workshops/ECM1415/part.tex}
-
-\input{Assessments/part.tex}
+\begin{appendices}
+    \part{Appendices}
+    \input{appendices/assessments/part.tex}
+    \input{appendices/workshops/ECM1011/part.tex}
+    \input{appendices/workshops/ECM1400/part.tex}
+    \input{appendices/workshops/ECM1407/part.tex}
+    \input{appendices/workshops/ECM1415/part.tex}
+\end{appendices}
 
 \end{document}
