@@ -1,5 +1,9 @@
 % !TeX root = main.tex
 
+% TODO:
+% - Replace `example' with `examples'
+% - Use subsubsections
+
 \documentclass[twoside]{report}
 
 \usepackage[a4paper, margin=1in]{geometry}
@@ -33,6 +37,16 @@
     \part[#2]{#2\\\vspace{1\baselineskip}\small\emph{#3}}%
     \renewcommand{\partname}{Part}%
     \renewcommand{\thepart}{\Roman{part}}%
+}
+
+\newcommand{\tocchapter}[1]{%
+  \stepcounter{chapter}%
+  \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}%
+}
+
+\newcommand{\tocsection}[1]{%
+  \stepcounter{section}%
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
 }
 
 \renewcommand{\arraystretch}{1.2}
