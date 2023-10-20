@@ -1,0 +1,85 @@
+\chapter{Set Theory}
+
+\section{Sets}
+\begin{enumerate}
+    \item true
+    \item true
+    \item false
+    \item true
+    \item false
+    \item true
+    \item true
+    \item true
+    \item true
+    \item false
+\end{enumerate}
+
+\section{Subsets}
+\begin{proof}
+    Suppose that \(A\), \(B\), and \(C\) are sets such that \(A \subseteq B\) and \(B \subseteq C\). Show that \(A \subseteq C\).
+    \begin{itemize}
+        \item Let \(x\) be an arbitrary element of \(A\).
+        \item Because \(A \subseteq B\), \(x \in B\).
+        \item Because \(B \subseteq C\), \(x \in C\).
+        \item As \(x\) is in \(A\) and \(x \in C\), and \(x\) is an arbitrary element, \(A \subseteq C\).
+    \end{itemize}
+\end{proof}
+
+\tocsection{Power Set}
+\tocsection{Set Operations}
+
+\section{Set Identities}
+\begin{proof}
+    Prove the second De Morgan law by showing that if A and B are sets then:
+    \begin{equation*}
+        \overline{A \cup B} = \overline{A} \cap \overline{B}
+    \end{equation*}
+    \begin{itemize}
+        \item If \(x \in \overline{A \cup B}\), \(x\) is not in \(A \cup B\).
+        \item Therefore, \(x \in \overline{A}\) and \(x \in \overline{B}\).
+        \item Therefore \(x \in \overline{A} \cap \overline{B}\), and so \(\overline{A \cup B} \subseteq \overline{A} \cap \overline{B}\).
+        \item Suppose \(x \in \overline{A} \cap \overline{B}\).
+        \item Therefore, \(x\) is not in \(A\) and \(x\) is not in \(B\).
+        \item Therefore, \(x\) is not in \(A \cup B\).
+        \item Therefore, \(x \in \overline{A \cup B}\).
+        \item Therefore, \(\overline{A} \cap \overline{B} \subseteq \overline{A \cup B}\).
+        \item Because \(\overline{A \cup B} \subseteq \overline{A} \cap \overline{B}\) and \(\overline{A} \cap \overline{B} \subseteq \overline{A \cup B}\), \(\overline{A \cup B} = \overline{A} \cap \overline{B}\).
+    \end{itemize}
+\end{proof}
+
+\tocsection{Properties of Functions}
+
+\section{Function Composition}
+Suppose that \(g\) is a function from \(A\) to \(B\) and \(f\) is a function from \(B\) to \(C\). Prove
+each of these statements.
+\begin{proof}
+    If \(f \circ g\) is onto, then \(f\) must also be onto.
+    \begin{itemize}
+        \item Let \(z \in C\)
+        \item Because \(f \circ g\) is onto, there is an element \(x \in A\) such that \(f(g(x)) = z\)
+        \item Then \(g(x)\) is an element of \(B\) that maps to \(z\) under the function \(f\) which shows that \(f\) is unto.
+    \end{itemize}
+\end{proof}
+\begin{proof}
+    If \(f \circ g\) is one-to-one, then \(g\) must also be one-to-one.
+    \begin{itemize}
+        \item Let \(x_1\) and \(x_2\) be elements of \(A\) then assume \(f(g(x_1)) = f(g(x_2))\).
+        \item Such that \(g(x_1) = g(x_2)\).
+        \item Because \(f \circ g\) is one-to-one, ths implies that \(x_1 = x_2\) and shows that \(g\) is one-to-one.
+    \end{itemize}
+\end{proof}
+\begin{proof}
+    If \(f \circ g\) is a bijection, then \(g\) is onto if and only if \(f\) is one-to-one.
+    \begin{itemize}
+        \item Let \(x_1\) and \(x_2\) be elements of \(A\) such that \(g(x_1) = y_1\) and \(g(x_2) = y_2\).
+        \item Suppose \(g\) is onto, and let \(y_1\) and \(y_2\) be elements of \(B\) such that \(f(y_1) = f(y_2)\).
+        \item Then if \((f \circ g)(x_1) = f(g(x_1)) = f(y_1) = f(y_2) = f(g(x_2)) = (f \circ g)(x_2)\) and because \(f \circ g\) is one-to-one \(x_1 = x_2\).
+        \item Therefore \(y_1 = y_2\), and so \(f\) is one-to-one.
+    \end{itemize}
+    \begin{itemize}
+        \item Suppose that \(f\) is one-to-one.
+        \item To show that \(g\) is onto, let \(y \in B\).
+        \item Because \(f \circ g\) is onto, there is an element \(x \in A\) such that \(f(g(x)) = f(y)\).
+        \item Because \(f\) is one-to-one, this means that \(y = g(x)\), and so \(g\) is onto.
+    \end{itemize}
+\end{proof}
