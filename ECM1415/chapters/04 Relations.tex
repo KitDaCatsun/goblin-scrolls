@@ -1,16 +1,18 @@
 \chapter{Relations}
 
-\section{Properties of Relations}
+\section{Relations}
 \subsection{Relations}
 Relations allow for the representation of many-to-many mappings, unlike functions.
 
 The ordered \(n\)-tuple \((a_1, a_2, \dots, a_n)\) is the ordered collection that has \(a_1\) as its first element, \(a_2\) as its second, ect. \(2\)-tuples are called ordered pairs. Two tuples are equal if they have the same elements in the same order.
 
+\subsubsection{Cartesian Product}
 The cartesian product of the sets \(A_1, A_2, \dots, A_n\), denoted \(A_1 \times A_2 \times \dots \times A_n\), is the set of ordered \(n\)-tuples \((a_1, a_2, \dots, a_n)\) where \(a_i\) belongs to \(A_i\) for \(i = 1, \dots, n\):
 \begin{equation*}
     A_1 \times A_2 \times \dots A_n = \{(a_1, a_2, \dots, a_n) | a_i \in A_i \text{ for } i = 1, 2, \dots, n\}
 \end{equation*}
 
+\subsubsection{Binary Relations}
 A binary relation \(R\) from a set \(A\) to a set \(B\) is a subset \(R \subseteq A \times B\).
 \begin{example}
     Let \(A = {0, 1, 2}\) and \(B = \{a, b\}\), then:
@@ -20,22 +22,90 @@ A binary relation \(R\) from a set \(A\) to a set \(B\) is a subset \(R \subsete
 \subsection{Forming new relations}
 The set operations \(\cup\), \(\cap\), and \(-\), can be used on relations.
 
-The composition of two functions \(R_2 \circ R_1\), where \(R_1\) maps \(A\) to \(B\), and \(R_2\) from \(B\) to \(c\), is defined as:
+The composition of two functions \(R_2 \circ R_1\), where \(R_1\) maps \(A\) to \(B\), and \(R_2\) from \(B\) to \(C\), is defined as:
 \begin{equation*}
-    \{(a, c) | \exists b \in B\cdotp (a, b) \in R_1 \land (b, c) \in R_2\}
+    \{(a, c) | \exists b \in B\ldotp (a, b) \in R_1 \land (b, c) \in R_2\}
 \end{equation*}
 The powers \(R^n\) of a relation \(R\) is \(R \circ R \circ \dots \circ R\) \(n\) times.
 
 \section{Properties of relations}
 \subsection{Properties}
+\subsubsection{Reflexivity}
 A relation is reflexive if and only if \((a, a) \in R\) for every element \(a \in A\):
 \begin{equation*}
-    \forall x \cdotp (x \in A \rightarrow (x, x) \in R)
+    \forall x \ldotp (x \in A \rightarrow (x, x) \in R)
 \end{equation*}
-\begin{example}
-    The relations on \(\mathbb{Z}\) are reflexive:
+\begin{examples}
+    These relations on \(\mathbb{Z}\) are reflexive:
     \begin{itemize}
         \item \(\{(a, b) | a = b\}\)
-        \item \(\{a, b) | a \leq b\}\)
+        \item \(\{(a, b) | a \leq b\}\)
+    \end{itemize}
+\end{examples}
+
+\subsubsection{Symmetry}
+A relation \(R\) is symmetric if and only if \((b, a) \in R\) whenever \((a, b) \in R\):
+\begin{equation*}
+    \forall x\ldotp \forall y\ldotp ((x, y) \in R \rightarrow (y, x) \in R)
+\end{equation*}
+
+\subsubsection{Antisymmetry}
+A relation \(R\) on a set \(A\) such that for all \(a, b \in A\), if \((a, b) \in R\) and \((b, a) \in R\) then \(a = b\) is called antisymmetric\footnote{Symmetry and antisymmetry are not related: one relation can be both.}:
+\begin{equation*}
+    \forall x, y \ldotp ((x, y) \in R \land (y, x) \in R \rightarrow x = y)
+\end{equation*}
+\begin{examples}
+    The following relations on \(\mathbb{Z}\) are antisymmetric:
+    \begin{itemize}
+        \item \(\{(a, b) | a = b\}\)
+        \item \(\{(a, b) | a < b\}\)
+    \end{itemize}
+\end{examples}
+
+\subsubsection{Transitivity}
+A relation \(R\) is called transitive if whenever \((a, b) \in R\) and \((b, c) \in R\), then \((a, c) \in R\) for all \(a, b, c \in A\):
+\begin{equation*}
+    \forall x, y, z \ldotp ((x, y) \in R \land (y, z) \in R \rightarrow (x, z) \in R)
+\end{equation*}
+
+\subsection{Closures}
+If \(R\) is a relation on a set \(A\), then the closure of \(R\) with respect to \(P\), if it exists, is the relation \(S\) on \(A\) such that:
+\begin{itemize}
+    \item It contains \(R\).
+    \item It satisfies property \(P\).
+    \item It is a subset of every subset of \(A \times A\) containing \(R\) with property \(P\).
+\end{itemize}
+\begin{example}
+    The reflexive closure of \(R = \{(a, b) | a < b\}\) on \(\mathbb{Z}\) is:
+    \begin{equation*}
+        R \cup \Delta = \{(a, b) | a < b\} \lor \{(a, a) | a \in A\} = \{(a, b) | a \leq b\}
+    \end{equation*}
+\end{example}
+
+\begin{example}
+    THe symmetric closure of \(R = \{(a, b) | a < b\}\) on \(\mathbb{Z}\) is:
+    \begin{equation*}
+        R \cup R^{-1} = \{(a, b) | a > b\} \cup \{(b, a) | a > b\} = \{(a, b) | a \neq b\}
+    \end{equation*}
+\end{example}
+
+\begin{example}
+    Let \(R = \{(1, 3),(1, 4),(2, 1),(3, 2)\}\). Finding the transitive closure of \(R\) requires recursively adding missing elements until the set is transitive.
+\end{example}
+
+\section{Equivalence Relations}
+\subsection{Equivalence Relations}
+Equivalence relations are reflexive, symmetric, and transitive. Elements \(a\) and \(b\) related by an equivalence relation are called equivalent, denoted \(a ~ b\).
+
+\begin{example}
+    If \(R\) is the relation on the set of strings of ENglish letters such that \(a R b\) if and only if \(l(a) = l(b)\), where \(l(x)\) is the length of the string \(x\).
+    \begin{itemize}
+        \item Reflexive because \(l(a) = l(a)\), it follows that \(a R a\) for all strings \(a\).
+        \item Symmetric: suppose that \(a R b\). Since \(l(a) = l(b)\), \(l(b) = l(a)\) and thus \(b R a\).
+        \item Transitivity: Suppose that \(a R b\) and \(b R c\). Since \(l(a) = l(b)\) and
+              \(l(b) = l(c)\) we have \(l(a) = l(a)\) and thus \(a R c\).
     \end{itemize}
 \end{example}
+If \(R\) is an equivalence on a set \(A\), the set of all elements related to an element \(a\) of \(A\) is called the equivalence class of \(a\).
+
+The equivalence class of \(a\) with respect to \(R\) is denoted by \([a]_R = \{s | (a, s) \in R\}\). If \(b \in [a]_R\) then \((b\) is called a representative of this equivalence class.
